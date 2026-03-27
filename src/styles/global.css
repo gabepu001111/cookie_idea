@@ -38,11 +38,21 @@ body{font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, Arial; ma
 .card::after{display:none}
 
 @media (max-width:640px){
-  .site-header{padding:10px 0}
-  .logo-wrap svg{width:40px; height:40px}
-  .hero{flex-direction:column; padding:28px 0}
+  .site-header{padding:12px 12px}
+  .logo-wrap svg{width:44px; height:44px}
+  .hero{flex-direction:column; padding:20px 0}
+  .hero-left{width:100%}
+  .hero-left h2{font-size:22px}
+  .hero-left .tagline{font-size:14px}
+  .hero-ctas{display:flex; flex-direction:column; gap:10px}
+  .cta{width:100%; padding:12px 14px}
+  .subscribe-form{flex-direction:column}
+  .subscribe-form input{width:100%}
+  .hero-right{width:auto; margin-top:10px}
   .product .media{height:180px}
-  .grid{grid-template-columns:repeat(1, 1fr)}
+  .grid{grid-template-columns:1fr}
+  .card{padding:12px}
+  .recipe-title{font-size:16px}
 }
 
 @media print{
