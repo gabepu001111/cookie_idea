@@ -1,18 +1,18 @@
 import React, { useEffect, useRef, useState } from 'react'
+// Local images (place your own files in src/assets/images/ to replace these)
+import img1 from '../assets/images/image1.jpeg'
+import img2 from '../assets/images/image2.jpeg'
+import img3 from '../assets/images/image3.jpeg'
+import img4 from '../assets/images/image4.jpeg'
+import img5 from '../assets/images/image5.jpeg'
+import img6 from '../assets/images/image6.jpeg'
+import img7 from '../assets/images/image7.jpeg'
+import img8 from '../assets/images/image8.jpeg'
 
 // LandingPage component — uses Tailwind utility classes only.
 // Includes Google Fonts via <link> elements rendered inside the component.
 export default function LandingPage() {
-  const images = [
-    'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1543332164-5d9f45d6f9f7?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=800&q=80',
-    'https://images.unsplash.com/photo-1600891964599-f61ba0e24092?auto=format&fit=crop&w=800&q=80'
-  ]
+  const images = [img1, img2, img3, img4, img5, img6, img7, img8]
 
   // Carousel refs/state
   const carouselRef = useRef(null)
@@ -70,7 +70,7 @@ export default function LandingPage() {
         {/* Top-right navigation bar */}
         <nav aria-label="Primary" className="absolute top-6 right-6 sm:top-8 sm:right-8">
           <ul className="flex items-center gap-6 text-sm sm:text-base md:text-lg">
-            {['FAQ', 'Contact', 'Gift Cards'].map((item) => (
+            {['Menu', 'Contact', 'About Us'].map((item) => (
               <li key={item}>
                 <a
                   href="#"
@@ -121,12 +121,7 @@ export default function LandingPage() {
               </svg>
             </div>
 
-            <h1
-              className="text-5xl sm:text-6xl md:text-7xl leading-tight"
-              style={{ fontFamily: '"Inter", cursive' }}
-            >
-              Globake
-            </h1>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl leading-tight">Globake</h1>
           </div>
 
           {/* (Navigation moved to the top-right) */}
@@ -138,8 +133,8 @@ export default function LandingPage() {
             className="text-sm sm:text-base text-[#f5f5dc]/90 mt-2"
             style={{ fontFamily: 'Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial' }}
           >
-            <p className="font-medium">1047 Bedford Ave, Brooklyn</p>
-            <p className="mt-1 text-sm opacity-90">Wednesday–Monday 8AM–4PM (Closed Tuesday)</p>
+            <p className="font-medium">A global experience</p>
+            <p className="mt-1 text-sm opacity-90">Coming to a farmers market near you</p>
           </div>
         </main>
       </header>
@@ -171,14 +166,14 @@ export default function LandingPage() {
                     className={`flex-none px-2 transition-transform duration-500 ${
                       isActive ? 'scale-105 z-20' : isAdjacent ? 'scale-95 z-10' : 'scale-90 z-0'
                     }`} 
-                    style={{ width: '60%', maxWidth: '520px' }}
+                    style={{ width: '48%', maxWidth: '420px' }}
                   >
                     <figure className="overflow-hidden rounded-lg bg-[#2b473a]">
                       <img
                         src={src}
                         alt={`Bakery item ${i + 1}`}
-                        className={`w-full object-cover transition-transform duration-500 ${isActive ? 'transform scale-110' : ''}`}
-                        style={{ height: '360px' }}
+                        className={`w-full object-cover transition-transform duration-500 ${isActive ? 'transform scale-105' : ''}`}
+                        style={{ height: '260px' }}
                         loading="lazy"
                       />
                     </figure>
