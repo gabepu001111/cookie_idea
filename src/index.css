@@ -1,0 +1,21 @@
+:root {
+  /* Change this value to switch the whole site font. Example: 'Forum' or 'Inter' */
+  --site-font: 'Forum', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Minimal app CSS — Tailwind is loaded from CDN in index.html for dev. */
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: var(--site-font);
+  margin: 0;
+}
+
+/* handwriting utility — use the handwritten class to opt-in to Patrick Hand */
+.handwritten {
+  font-family: 'Patrick Hand', cursive;
+}
