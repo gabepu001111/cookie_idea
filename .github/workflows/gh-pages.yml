@@ -13,6 +13,8 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages   # ✅ Required for Pages deployment
 
     steps:
       - name: Checkout repository
@@ -21,24 +23,22 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: '18.x'
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
+        run: npm install
 
       - name: Rebuild native modules
         run: npm rebuild
 
       - name: Build project
         run: npm run build
-        
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
+          name: github-pages   # ✅ Matches deploy input
           path: docs
 
       - name: Configure GitHub Pages
@@ -47,4 +47,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact: github-pages
+          artifact_name: github-pages   # ✅ Correct input name
