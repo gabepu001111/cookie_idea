@@ -43,7 +43,7 @@ jobs:
           find docs -name ".cache" -exec rm -rf {} +
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v3
         with:
           name: github-pages   
           path: docs
@@ -54,4 +54,4 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
         with:
-          artifact_name: github-pages   # ✅ Correct input name
+          artifact_name: github-pages
