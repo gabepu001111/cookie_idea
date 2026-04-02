@@ -39,6 +39,8 @@ jobs:
         run: |
           find docs -type l -delete
           find docs -name ".DS_Store" -delete
+          find docs -name ".vite*" -exec rm -rf {} +
+          find docs -name ".cache" -exec rm -rf {} +
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
