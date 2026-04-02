@@ -60,11 +60,7 @@ export default function LandingPage() {
 
   return (
     <div className="min-h-screen bg-[#2f4f3f] text-[#f5f5dc] flex flex-col">
-      {/* Google Fonts — injected here so this single component includes its font imports */}
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Inter:wght@300;400;600&display=swap"
-      />
+      {/* Fonts are loaded globally from index.html; remove per-component font links */}
 
       <header className="relative flex-1 flex items-center justify-center px-6">
         {/* Top-right navigation bar */}
