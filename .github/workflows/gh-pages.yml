@@ -35,11 +35,6 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Move build to docs folder
-        run: |
-          rm -rf docs
-          mv dist docs
-
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v4
 
