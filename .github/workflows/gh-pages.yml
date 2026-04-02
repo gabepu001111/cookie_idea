@@ -14,7 +14,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     environment:
-      name: github-pages   # ✅ Required for Pages deployment
+      name: github-pages   
 
     steps:
       - name: Checkout repository
@@ -35,10 +35,15 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Clean docs folder
+        run: |
+          find docs -type l -delete
+          find docs -name ".DS_Store" -delete
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages   # ✅ Matches deploy input
+          name: github-pages   
           path: docs
 
       - name: Configure GitHub Pages
