@@ -40,7 +40,7 @@ jobs:
           find docs -name ".cache" -exec rm -rf {} +
 
       - name: Fix permissions and package artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v4
         with:
           path: docs
 
