@@ -13,6 +13,8 @@ permissions:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
 
     steps:
       - name: Checkout repository
@@ -21,27 +23,28 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: '20.x'
           cache: 'npm'
 
       - name: Install dependencies
-        run: |
-          rm -rf node_modules package-lock.json
-          npm install
-
-      - name: Rebuild native modules
-        run: npm rebuild
+        run: npm install
 
       - name: Build project
         run: npm run build
 
-      - name: Move build to docs folder
+      - name: Clean docs folder
         run: |
-          rm -rf docs
-          mv dist docs
+          find docs -type l -delete
+          find docs -name ".DS_Store" -delete
+          find docs -name ".vite*" -exec rm -rf {} +
+          find docs -name ".cache" -exec rm -rf {} +
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v4
+      - name: Fix permissions and package artifact
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
